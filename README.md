@@ -10,12 +10,12 @@
 
 * create one to-do list   
   Url: POST http://voicetube-test.localhost/items/   
-  parems:title, content    
+  parameters:title, content    
   header:Authorization:Bearer {token}    
 
 * update one to-do list    
   Url: PUT http://voicetube-test.localhost/items/{items_id}    
-  parems:title, content   
+  parameters:title, content   
   header:Authorization:Bearer {token}    
 
 * delete one to-do list    
@@ -32,7 +32,7 @@
 
 * register user  
   Url: POST http://voicetube-test.localhost/signup    
-  parems:email, name, password    
+  parameters:email, name, password    
 
 * get token status (Only if tokens with TTL or RefreshToken)   
   Url: GET http://voicetube-test.localhost/token    
