@@ -1,4 +1,5 @@
 # VoiceTube-Test
+# Use https://github.com/tymondesigns/jwt-auth    
 
 * get all to-do lists   
   Url: GET http://voicetube-test.localhost/items   
@@ -36,4 +37,4 @@
 
 * get token status (Only if tokens with TTL or RefreshToken)   
   Url: GET http://voicetube-test.localhost/token    
-  header:Authorization:Bearer {token}    
+  header:Authorization:Bearer {token}  
