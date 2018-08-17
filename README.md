@@ -35,3 +35,5 @@
   parems:email, name, password    
 
 * get token status (Only if tokens with TTL or RefreshToken)   
+  Url: GET http://voicetube-test.localhost/token    
+  header:Authorization:Bearer {token}    
