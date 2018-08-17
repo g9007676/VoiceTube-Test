@@ -63,18 +63,6 @@ class AuthController extends Controller
         );
     }
 
-    public function logout()
-    {
-        JWTAuth::invalidate();
-        return response(
-            [
-                'status' => 'success',
-                'msg' => 'Logged out Successfully.'
-            ],
-            Response::HTTP_OK
-        );
-    }
-
     public function refresh()
     {
         return response(
@@ -83,5 +71,26 @@ class AuthController extends Controller
             ],
             Response::HTTP_OK
         );
+    }
+
+    public function check(JWTAuth $JWTAuth)
+    {
+        try {
+            $JWTAuth->getToken();
+            $JWTAuth->authenticate();
+            return response(
+                [
+                    'status' => 'success'
+                ],
+                Response::HTTP_OK
+            );
+        } catch (\Exception $e) {
+            return response(
+                [
+                    'status' => 'error'
+                ],
+                Response::HTTP_BAD_REQUEST
+            );
+        }
     }
 }
