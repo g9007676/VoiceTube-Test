@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+    nginx:
+        image: nginx
+        volumes:
+            - "./available-sites/:/etc/nginx/conf.d/:ro"
+            - "./project:/code/project"
+        ports:
+            - "80:80"
+        depends_on:
+            - project
+    db:
+        image: mysql:5.6
+        environment:
+            - MYSQL_ALLOW_EMPTY_PASSWORD=true
+            - MYSQL_DATABASE=ats
+        ports:
+            - "3306:3306"
+        volumes:
+            - "./database:/docker-entrypoint-initdb.d"
+    project:
+        build:
+            context: ./project/
+        volumes:
+            - "./project:/code/project"
+              #            - "./php-ini/dsp.ini:/usr/local/etc/php/conf.d/dsp.ini"
+        depends_on:
+            - db
